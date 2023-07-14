@@ -86,4 +86,4 @@ const ExpenseForm = (props) => {
     )
 }
 
-export default Form
+export default ExpenseForm
