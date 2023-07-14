@@ -1,17 +1,14 @@
+import { RouterProvider } from 'react-router-dom'
+import * as React from 'react'
 import './style.css'
 import { createRoot } from 'react-dom/client'
-import { useState } from 'react'
+import router from './routers/Router'
 
-const Message = () => {
-  const [click, setClick] = useState(false)
-  const handleClick = () => {
-    setClick(!click)
-  }
+const Jsx = () => {
   return(
-    <>
-       <a href="#" onClick={handleClick}>Want to buy a new car?</a>
-        { click === true && <p>Call +11 22 33 44 now!</p>}
-    </>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
   )
 }
 
@@ -20,5 +17,5 @@ const root = createRoot(document.querySelector('#root'))
 
 
 root.render(
-    <Message />
+    <Jsx/>
 )
