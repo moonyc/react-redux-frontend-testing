@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import moment from 'moment'
-import { SingleDatePicker } from 'react-dates'
+import { DatePicker } from '@mui/x-date-pickers';
 
 
 const ExpenseForm = (props) => {
@@ -67,22 +67,22 @@ const ExpenseForm = (props) => {
                     value={amount}
                     onChange={handleAmountChange}
                 />
-                <SingleDatePicker
-                    date={createdAt}
-                    onDateChange={handleDateChange}
-                    focused={calendarFocused}
-                    onFocusChange={handleFocusChange}
-                    numberOfMonths={1}
-                    isOutsideRange={() => false}
+                <DatePicker
+                    label="Your Expense Date Picker"
+                    value={createdAt}
+                    onChange={handleDateChange}
+                    autoFocus={calendarFocused}
+                    openTo="month"
+                    orientation="landscape"
+                    onClose={handleFocusChange}
                 />
-                <textarea>
+                <textarea
                     placeholder="Add a note for your expense (optimal)"
                     value={note}
-                    onChange={handleNoteChange}
-                </textarea>
+                    onChange={handleNoteChange}/>
                 <button>Add Expense</button>
             </form>
-        </div>
+        </div> 
     )
 }
 

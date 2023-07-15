@@ -1,4 +1,4 @@
-import uuid from 'uuid'
+import * as uuid from 'uuid'
 
 // ADD EXPENSE
 export const addExpense = ({

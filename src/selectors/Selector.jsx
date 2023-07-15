@@ -4,7 +4,7 @@ import moment from 'moment'
 // data that is derived from the state
 
 
-export default (expenses, {text, sortBy, startDate, endDate}) => {
+export default function Selector(expenses, {text, sortBy, startDate, endDate}){
     return expenses.filter((expense) => {
         const createdAtMoment = moment(expense.createdAt)
         const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true
