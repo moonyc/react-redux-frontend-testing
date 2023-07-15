@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import { createStore, combineReducers} from 'redux'
 import expensesReducer from './reducers/expenses'
 import filtersReducer from './reducers/filters'
+import { addExpense } from './actions/expenses';
 
 const store = createStore(
   combineReducers({
@@ -17,6 +18,8 @@ const store = createStore(
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
+const state = store.getState()
+store.dispatch(addExpense({ description: 'Water bill', amount: 4500 }));
 
 const Jsx = () => {
   return(

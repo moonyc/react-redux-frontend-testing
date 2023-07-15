@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import moment from 'moment'
+import dayjs from 'dayjs'
 import { DatePicker } from '@mui/x-date-pickers';
 
 
@@ -14,28 +15,28 @@ const ExpenseForm = (props) => {
 
     const handleDescriptionChange = (e) => {
         const description = e.target.value
-        setDescription({description})
+        setDescription(description)
     }
 
     const handleNoteChange = (e) => {
         const note = e.target.value
-        setNote({note})
+        setNote(note)
     }
     
     const handleAmountChange = (e) => {
         const amount = e.target.value
         if(!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
-            this.setState({amount})
+            setAmount(amount)
         }
     }
 
     const handleDateChange = (createdAt) => {
         if(createdAt) {
-            setCreatedAt({createdAt})
+            setCreatedAt(createdAt)
         }
     }
 
-    const handleFocusChange = ({focused}) => {
+    const handleFocusChange = (focused) => {
         setCalendardFocused(focused)
     }
 
@@ -44,11 +45,14 @@ const ExpenseForm = (props) => {
         if(!description || !amount) {
             setError('Please provide the description and the amount')
         }
-        setError('')
-        setDescription(description)
-        setAmount(amount)
-        setCreatedAt(createdAt)
-        setNote(note)
+        props.onSubmit(
+            {
+                description,
+                amount: parseFloat((amount), 10) * 100,
+                createdAt: createdAt.valueOf(),
+                note
+            }
+        )
 }
     return (
         <div>
@@ -69,10 +73,10 @@ const ExpenseForm = (props) => {
                 />
                 <DatePicker
                     label="Your Expense Date Picker"
-                    value={createdAt}
+                    value={dayjs(createdAt)}
                     onChange={handleDateChange}
                     autoFocus={calendarFocused}
-                    openTo="month"
+                    openTo="day"
                     orientation="landscape"
                     onClose={handleFocusChange}
                 />
