@@ -48,7 +48,7 @@ const ExpenseForm = (props) => {
         props.onSubmit(
             {
                 description,
-                amount: parseFloat((amount), 10) * 100,
+                amount: parseFloat((amount), 10),
                 createdAt: createdAt.valueOf(),
                 note
             }
