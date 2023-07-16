@@ -5,6 +5,7 @@ import ExpenseList from './ExpenseList'
 const ExpenseDashboardPage= (props) => {
     return (
         <div>
+            
             <ExpenseList />
         </div>
     )
