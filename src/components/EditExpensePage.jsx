@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { editExpense, removeExpense } from '../actions/expenses';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
 
 const EditExpensePage = (props) => {
     const navigate = useNavigate();
     return (
         <div>
+        <Header />
             <ExpenseForm
                 expense={props.expense}
                 onSubmit={(expense) => {

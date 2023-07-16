@@ -11,6 +11,7 @@ import getVisibleExpenses from './selectors/Selector';
 import expensesReducer from './reducers/expenses'
 import filtersReducer from './reducers/filters'
 import { addExpense } from './actions/expenses';
+import Header from './components/Header';
 
 const store = createStore(
   combineReducers({
