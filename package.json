@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.0",
     "@mui/x-date-pickers": "^6.10.0",
+    "@mui/x-date-pickers-pro": "^6.10.0",
     "dayjs": "^1.11.9",
     "moment": "^2.29.4",
     "react": "^16.14.0",

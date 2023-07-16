@@ -73,7 +73,7 @@ const ExpenseForm = (props) => {
                 />
                 <DatePicker
                     label="Your Expense Date Picker"
-                    value={dayjs(createdAt)}
+                    value={createdAt}
                     onChange={handleDateChange}
                     autoFocus={calendarFocused}
                     openTo="day"

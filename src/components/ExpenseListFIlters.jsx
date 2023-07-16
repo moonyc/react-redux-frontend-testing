@@ -1,17 +1,19 @@
 import React from "react";
 import { connect } from 'react-redux'
 import dayjs from 'dayjs'
+import { useState } from 'react'
+import { DatePicker } from '@mui/x-date-pickers';
 import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate } from '../actions/filters';
 
 const ExpenseListFilters = (props) => {
     const [calendarFocused, setCalendardFocused] = useState(null)
 
-    onDateChange = ({ startDate, endDate}) => {
+    const handleDateChange = ({ startDate, endDate}) => {
         props.dispatch(setStartDate(startDate))
         props.dispatch(setEndDate(endDate))
     }
 
-    onFocusChange = (calendarFocused) => {
+    const handleFocusChange = (calendarFocused) => {
         setCalendardFocused(calendarFocused)
     }
 
@@ -37,6 +39,15 @@ const ExpenseListFilters = (props) => {
                 <option value="date">Date</option>
                 <option value="amount">Amount</option>
             </select>
+            <DatePicker
+                    label="Your Expense Date Picker"
+                    value={props.filters.startDate}
+                    onChange={handleDateChange}
+                    autoFocus={calendarFocused}
+                    openTo="day"
+                    orientation="landscape"
+                    onClose={handleFocusChange}
+                />
         </div>
     )
 }
